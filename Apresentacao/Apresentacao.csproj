@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{913715F9-4BC9-49CD-9515-2E64AEAB47A9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>cribrn</RootNamespace>
+    <AssemblyName>30Sibrn</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AcaoNaTela.cs" />
+    <Compile Include="cribrnDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cribrnDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="cribrnDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cribrnDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="cribrnDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cribrnDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="cribrnDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cribrnDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="FrmGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGrupo.Designer.cs">
+      <DependentUpon>FrmGrupo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgenda.Designer.cs">
+      <DependentUpon>FrmAgenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmChamada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmChamada.Designer.cs">
+      <DependentUpon>FrmChamada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgendaLista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAgendaLista.Designer.cs">
+      <DependentUpon>FrmAgendaLista.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmLicoes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLicoes.Designer.cs">
+      <DependentUpon>FrmLicoes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmFrequencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmFrequencia.Designer.cs">
+      <DependentUpon>FrmFrequencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPessoalCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPessoalCadastro.Designer.cs">
+      <DependentUpon>FrmPessoalCadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPessoalReincricao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPessoalReincricao.Designer.cs">
+      <DependentUpon>FrmPessoalReincricao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPessoalSelecao.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPessoalSelecao.Designer.cs">
+      <DependentUpon>FrmPessoalSelecao.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmPrincipal.Designer.cs">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmGrupo.resx">
+      <DependentUpon>FrmGrupo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgenda.resx">
+      <DependentUpon>FrmAgenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmChamada.resx">
+      <DependentUpon>FrmChamada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgendaLista.resx">
+      <DependentUpon>FrmAgendaLista.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLicoes.resx">
+      <DependentUpon>FrmLicoes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmFrequencia.resx">
+      <DependentUpon>FrmFrequencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPessoalCadastro.resx">
+      <DependentUpon>FrmPessoalCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPessoalReincricao.resx">
+      <DependentUpon>FrmPessoalReincricao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPessoalSelecao.resx">
+      <DependentUpon>FrmPessoalSelecao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmPrincipal.resx">
+      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="cribrnDataSet.xsc">
+      <DependentUpon>cribrnDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="cribrnDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cribrnDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cribrnDataSet.xss">
+      <DependentUpon>cribrnDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="cribrnDataSet1.xsc">
+      <DependentUpon>cribrnDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="cribrnDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cribrnDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cribrnDataSet1.xss">
+      <DependentUpon>cribrnDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="cribrnDataSet2.xsc">
+      <DependentUpon>cribrnDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="cribrnDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cribrnDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cribrnDataSet2.xss">
+      <DependentUpon>cribrnDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="cribrnDataSet3.xsc">
+      <DependentUpon>cribrnDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="cribrnDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cribrnDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cribrnDataSet3.xss">
+      <DependentUpon>cribrnDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database1.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database1_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>Database1.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\30semanas.png" />
+    <None Include="Resources\logo_CR_gif.gif" />
+    <None Include="Resources\bg_coracao.jpg" />
+    <None Include="Resources\logo_CR_peq.png" />
+    <None Include="Resources\logo_CR.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Negocios\Negocios.csproj">
+      <Project>{6820f618-6f30-451e-aa2f-572728f24241}</Project>
+      <Name>Negocios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ObjetoTransferencia\ObjetoTransferencia.csproj">
+      <Project>{79ed619d-ab4e-4a8d-b720-bf61e9ec6e4a}</Project>
+      <Name>ObjetoTransferencia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WinFormCharpWebCam\WinFormCharpWebCam.csproj">
+      <Project>{0d809987-4ffc-4b3e-bd2e-f391a1ff48c0}</Project>
+      <Name>WinFormCharpWebCam</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,234 @@
+
+CREATE PROCEDURE uspConsultaUsuario
+	@IDPessoa VARCHAR(100)
+	
+
+AS
+BEGIN
+
+		select 
+		 pes.Nome,
+		 usu.NomeLogin,
+		 usu.Senha,
+		 usu.Nivel
+
+		from
+		 tblPessoa as pes
+		 join  tblUsuario as usu on
+		 usu.IDPessoa = pes.IDPessoa
+
+		where
+		usu.IDPessoa = @IDPessoa
+
+END
+
+=======================================================
+
+CREATE PROCEDURE uspLogar
+  @NomeLogin VARCHAR(50),
+  @Senha VARCHAR(50)
+
+AS
+BEGIN
+  SELECT
+	*
+  FROM
+	tblUsuario
+  WHERE
+	NomeLogin = @NomeLogin AND Senha = @Senha
+
+  END
+
+
+=======================================================
+
+CREATE PROCEDURE uspPessoaAlterar
+(
+	@IDPessoa int,
+	@Nome varchar(50),
+	@Endereco varchar(100),
+	@CEP varchar(9),
+	@Bairro varchar(50),
+	@Cidade varchar(50),
+	@Estado varchar(2),
+	@Telefone varchar(14),
+	@Celular varchar(15),
+	@Email varchar(50),
+	@Nascimento date,
+	@StatID int
+)
+AS
+BEGIN
+    BEGIN TRY
+	  BEGIN TRAN
+		UPDATE tblPessoa
+		   SET	nome = @Nome,
+				Endereco = @Endereco,
+				CEP = @CEP,
+				Bairro = @Bairro,
+				Cidade = @Cidade,
+				Estado = @Estado,
+				Telefone = @Telefone,
+				Celular = @Celular,
+				Email = @Email,
+				Nascimento = @Nascimento,
+				StatID = @StatID
+
+			WHERE 
+			    IDPessoa = @IDPessoa
+		
+			SELECT @IDPessoa AS Retorno
+		    
+		    COMMIT TRAN
+		END TRY
+	BEGIN CATCH
+		ROLLBACK TRAN
+		SELECT ERROR_MESSAGE() AS Retorno; 
+	END CATCH
+END
+
+
+=======================================================
+
+CREATE PROCEDURE uspPessoaConsultarInativo
+	@Nome varchar(100)
+	
+AS
+BEGIN
+	SELECT
+	  *, sta.Stat as stat
+	FROM
+		tblPessoa as pes
+		
+	JOIN tblStat as sta ON
+	  sta.StatID = pes.StatID 
+
+	WHERE
+		pes.Nome collate Latin1_General_CI_AI 
+		         LIKE '%' + @Nome + '%' AND pes.StatID = 0
+	 OR pes.Nome collate Latin1_General_CI_AI
+			 LIKE '%' + @Nome + '%' AND pes.StatID = 3
+	 OR pes.Nome collate Latin1_General_CI_AI 
+			 LIKE '%' + @Nome + '%' AND pes.StatID = 4 
+	 OR pes.Nome collate Latin1_General_CI_AI 
+			 LIKE '%' + @Nome + '%' AND pes.StatID = 5
+    ORDER BY Nome
+	
+END
+
+
+=======================================================
+
+
+CREATE PROCEDURE uspPessoaExcluir
+
+	@IDPessoa int
+
+AS
+BEGIN
+
+	UPDATE  tblPessoa SET StatID = 3	WHERE IDPessoa = @IDPessoa
+	
+	SELECT @IDPessoa AS Retorno
+END
+
+
+=======================================================
+
+CREATE PROCEDURE uspPessoaInserir
+(
+	@Nome varchar(50),
+	@Endereco varchar(100),
+	@CEP varchar(9),
+	@Bairro varchar(50),
+	@Cidade varchar(50),
+	@Estado varchar(2),
+	@Telefone varchar(14),
+	@Celular varchar(15),
+	@Email varchar(50),
+	@Nascimento date,
+	@StatID int
+)
+AS
+BEGIN
+    BEGIN TRY
+	  BEGIN TRAN
+		 INSERT INTO tblPessoa
+			(
+ 				nome,
+				Endereco,
+				CEP,
+				Bairro,
+				Cidade,
+				Estado,
+				Telefone,
+				Celular,
+				Email,
+				Nascimento,
+				StatID
+
+			)
+			  VALUES
+			(
+				@Nome,
+				@Endereco,
+				@CEP,
+				@Bairro,
+				@Cidade,
+				@Estado,
+				@Telefone,
+				@Celular,
+				@Email,
+				@Nascimento,
+				@StatID
+			)
+		
+			SELECT @@IDENTITY AS Retorno
+		    
+		    COMMIT TRAN
+		END TRY
+	BEGIN CATCH
+		ROLLBACK TRAN
+		SELECT ERROR_MESSAGE() AS Retorno; 
+	END CATCH
+END
+
+=======================================================
+
+CREATE PROCEDURE uspPessoalConsultarPorNome
+	@Nome varchar(100)
+	
+AS
+BEGIN
+	SELECT
+	  *, sta.Stat as stat
+	FROM
+		tblPessoa as pes
+		
+	JOIN tblStat as sta ON
+	  sta.StatID = pes.StatID 
+
+	WHERE
+		pes.Nome collate Latin1_General_CI_AI
+		    LIKE '%' + @Nome + '%' AND pes.StatID = 1 
+                OR pes.Nome collate Latin1_General_CI_AI
+                    LIKE '%' + @Nome + '%' AND pes.StatID = 2
+    ORDER BY Nome
+	
+END
+
+=====================================================
+CREATE PROCEDURE uspPessoaReintegrar
+
+	@IDPessoa int
+
+AS
+BEGIN
+
+	UPDATE  tblPessoa SET StatID = 1	WHERE IDPessoa = @IDPessoa
+	
+	SELECT @IDPessoa AS Retorno
+END
+
+===================================================== 
+
